@@ -21,10 +21,12 @@ void FrameRateController::ApplyFrameRateCap()
 		frameRateCap = customFrameRateCap;
 	else
 	{
-		if (Utilities::Game::IsInOnlineMatch())
-			frameRateCap = onlineFrameRateCap;
-		else
-			frameRateCap = useMonitorRefreshRate ? monitorRefreshRate : offlineFrameRateCap;
+		/*
+			if (Utilities::Game::IsInOnlineMatch())
+				frameRateCap = onlineFrameRateCap;
+			else
+		*/
+		frameRateCap = useMonitorRefreshRate ? monitorRefreshRate : offlineFrameRateCap;
 	}
 
 	Utilities::Memory::Internal::SetFloat(tMaxFPSAddress, frameRateCap);
